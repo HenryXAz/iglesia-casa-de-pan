@@ -9,6 +9,10 @@ Route::get('/', function () {
     return view('welcome', compact('users'));
 });
 
-Route::get('/hello-world', function() {
-    return "hello world";
-});
+Route::get('/ui/app', function (){
+    return view('pages.ui.app-page');
+})->name('ui.app');
+
+Route::get('/ui/guest', function (){
+    return view('pages.ui.guest-page');
+})->name('ui.guest');

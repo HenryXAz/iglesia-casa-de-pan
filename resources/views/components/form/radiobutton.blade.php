@@ -6,5 +6,5 @@
     id="{{$id}}"
     value="{{$value}}"
     class="{{$class . " "}}"
-    checked="{{$checked}}"
+    @checked($checked)
 />

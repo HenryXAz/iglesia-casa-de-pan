@@ -7,7 +7,8 @@ Route::get('/', function () {
     $users = User::all();
 
     return view('welcome', compact('users'));
-});
+})->name('welcome')
+->middleware(['auth', 'verified', 'user_activated']);
 
 Route::get('/ui/app', function (){
     return view('pages.ui.app-page');

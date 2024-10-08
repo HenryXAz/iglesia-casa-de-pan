@@ -1,19 +1,12 @@
-<head>
-    <title>{{config('app.name')}}</title>
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
-</head>
-<body>
-<h1 class="text-red-500">Titulo de mi app</h1>
+<x-layouts.app>
 
-@foreach ($users as $user)
-    <p>{{$user->name}}</p>
-@endforeach
+    <div x-data="{show:false}" class="p-4">
 
-<div x-data="{show:false}">
+        <x-button.button @click="show=!show">toggle</x-button.button>
 
-    <button @click="show=!show">toggle</button>
+        <p x-transition x-show="show" x-transition class="text-gray-200" >
+            pdsfksfdljj
+        </p>
 
-    <p x-transition x-transition-duration-500ms  x-show="show">hello world</p>
-</div>
-
-</body>
+    </div>
+</x-layouts.app>

@@ -9,6 +9,6 @@
     };
 @endphp
 
-<p class="{{$class . " " . $positionText . " text-sm md:text-base text-light-text dark:text-dark-text"}}">
+<p {{$attributes}} class="{{$class . " " . $positionText . " text-sm text-light-text dark:text-dark-text"}}">
     {{$slot}}
 </p>

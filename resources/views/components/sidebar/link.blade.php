@@ -2,7 +2,7 @@
 
 @php
     $indexRoute = explode(".", $route);
-    $subPathPattern = "/" . $indexRoute[0] . "\.w/";
+    $subPathPattern = "/" . $indexRoute[0] . ".\w/";
     $isSubPath = preg_match($subPathPattern, \Illuminate\Support\Facades\Request::route()->getName());
     $classes = "text-sm block my-2 text-left rounded-md w-full p-2 ";
     $classes .= (\Illuminate\Support\Facades\Route::is($route) || $isSubPath)

@@ -10,8 +10,20 @@ class MemberOptionalInformation extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'birthday' => 'date',
+    ];
+
+    protected $guarded = [
+        'id',
+        'created_at',
+    ];
+
+
+    protected $table = 'members_optional_information';
+
     // relations
-    public function member () : BelongsTo
+    public function member(): BelongsTo
     {
         return $this->belongsTo(Member::class);
     }

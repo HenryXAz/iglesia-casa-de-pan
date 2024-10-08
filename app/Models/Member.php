@@ -11,6 +11,11 @@ class Member extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id',
+        'created_at',
+    ];
+
     // relations
 
    public function optionalInformation () : HasOne

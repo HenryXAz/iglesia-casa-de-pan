@@ -27,11 +27,11 @@ $variantButton = match($variant) {
 @endphp
 
 @if ($href != '')
-    <a href="{{$href}}" class="{{$variantButton . " rounded-md p-2"}}">
+    <a {{$attributes}} href="{{$href}}" class="{{$variantButton . " rounded-md p-2"}}">
         {{$slot}}
     </a>
 @else
-    <button type="{{$type}}" class="{{$variantButton . " rounded-md p-2"}}">
+    <button {{$attributes}} type="{{$type}}" class="{{$variantButton . " rounded-md p-2"}}">
         {{$slot}}
     </button>
 @endif

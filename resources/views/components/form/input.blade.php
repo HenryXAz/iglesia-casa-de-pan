@@ -4,6 +4,7 @@
     name="{{$name}}"
     id="{{$id}}"
     value="{{$value}}"
+    type="{{$type}}"
     class="w-full p-1.5 font-light text-sm md:text-base bg-gray-100 dark:bg-dark-color-3 text-light-text dark:text-dark-text
     outline-none
     border

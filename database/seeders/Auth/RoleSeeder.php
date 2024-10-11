@@ -17,7 +17,18 @@ class RoleSeeder extends Seeder
             'listar roles',
             'editar roles',
         ],
-        'creador publicaciones' => [],
+        'creador publicaciones' => [
+            'listar publicaciones',
+            'crear publicaciones',
+            'editar publicaciones',
+            'publicar publicaciones',
+            'inhabilitar publicaciones',
+        ],
+        'administrador categorías publicaciones' => [
+            'listar categorias publicaciones',
+            'crear categorias publicaciones',
+            'editar categorias publicaciones',
+        ],
         ];
 
     /**

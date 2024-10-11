@@ -13,10 +13,21 @@ class PermissionSeeder extends Seeder
         'listar usuarios',
         'editar usuarios',
         'inhabilitar usuarios',
+
         'listar roles',
         'crear roles',
         'editar roles',
         'asignar roles',
+
+        'listar publicaciones',
+        'crear publicaciones',
+        'editar publicaciones',
+        'publicar publicaciones',
+        'inhabilitar publicaciones',
+
+        'listar categorias publicaciones',
+        'crear categorias publicaciones',
+        'editar categorias publicaciones',
     ];
 
 

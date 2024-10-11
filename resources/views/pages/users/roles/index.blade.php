@@ -38,4 +38,8 @@
         </x-table.table>
     </x-table.table-wrapper>
 
+    <div class="max-w-xl mx-auto">
+        {{$roles->links()}}
+    </div>
+
 </x-pages.users.base>

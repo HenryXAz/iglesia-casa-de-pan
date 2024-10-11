@@ -1,5 +1,5 @@
 @php
-    $spanClasses = "font-light dark:text-dark-text text-gray-200";
+    $spanClasses = " font-light dark:text-dark-text text-gray-200 ";
 
 @endphp
 

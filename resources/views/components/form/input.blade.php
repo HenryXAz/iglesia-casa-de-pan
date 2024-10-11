@@ -1,6 +1,7 @@
 @props(['type' => 'text', 'name' => "", 'id' => '', 'value' => ''])
 
 <input
+    {{$attributes}}
     name="{{$name}}"
     id="{{$id}}"
     value="{{$value}}"

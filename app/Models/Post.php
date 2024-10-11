@@ -29,6 +29,6 @@ class Post extends Model
 
     public function images () : MorphMany
     {
-        return $this->morphMany(ModelHasImages::class, 'images');
+        return $this->morphMany(ModelHasImages::class, 'immageable');
     }
 }

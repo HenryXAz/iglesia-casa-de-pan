@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -11,13 +12,17 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
         then: function() {
-            \Illuminate\Support\Facades\Route::middleware('web')
+            Route::middleware('web')
                 ->prefix('auth/')
             ->group(base_path('routes/auth.php'));
 
-            \Illuminate\Support\Facades\Route::middleware('web')
+            Route::middleware('web')
                 ->prefix('/usuarios')
                 ->group(base_path('routes/users.php'));
+
+            Route::middleware('web')
+                ->prefix('/publicaciones')
+                ->group(base_path('routes/posts.php'));
         }
     )
     ->withMiddleware(function (Middleware $middleware) {

@@ -20,7 +20,7 @@ return new class extends Migration
         Schema::create('model_has_category', function (Blueprint $table) {
             $table->id();
             $table->string('description', 255);
-            $table->foreignId('category_type_id')->constrained();
+            $table->foreignId('category_type_id')->constrained('category_types');
             $table->timestamps();
         });
     }

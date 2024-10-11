@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/css/toggle-theme.js',
+                'resources/js/posts_section.js',
             ],
             refresh: true,
         }),

@@ -7,7 +7,7 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
-    private const ROLES_PER_PAGE = 2;
+    private const ROLES_PER_PAGE = 15;
 
 
     public function  index()

@@ -1,4 +1,4 @@
-@props(['position' => 'left'])
+@props(['position' => 'left', 'class' => ''])
 
 @php
 $positionText = match($position) {
@@ -10,7 +10,7 @@ $positionText = match($position) {
 @endphp
 
 <h1
-    class="{{$positionText . " " . "bg-transparent text-light-text dark:text-dark-text text-bold text-lg md:text-2xl"}}"
+    class="{{$positionText . " " . $class .  " " . "bg-transparent text-light-text dark:text-dark-text font-bold text-lg md:text-2xl"}}"
 >
     {{$slot}}
 </h1>

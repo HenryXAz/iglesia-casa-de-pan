@@ -5,8 +5,8 @@
 
    $links = [
         [
-            'route' => 'welcome',
-            'description' => 'Home',
+            'route' => 'dashboard',
+            'description' => 'Dashboard',
             'icon' => '',
             'role' => '',
         ],
@@ -16,12 +16,18 @@
             'icon' => '',
             'role' => 'listar usuarios',
         ],
+        [
+            'route' => 'posts.index',
+            'description' => 'Gestión publicaciones',
+            'icon' => '',
+            'role' => 'listar publicaciones',
+        ],
    ];
 @endphp
 
 <div x-data="sidebar">
     <div
-        class="sticky flex justify-end w-full md:hidden text-gray-800 p-2 dark:text-gray-200 bg-light-color-1 dark:bg-dark-color-1"
+        class="fixed flex justify-end w-full md:hidden text-gray-800 p-2 dark:text-gray-200 bg-light-color-1 dark:bg-dark-color-1"
     >
         <button class="text-3xl"
                 @click="toggleSidebar()"
@@ -33,10 +39,12 @@
         x-show="isOpen"
         x-transition
         x-transition.duration.300ms
-        class="{{$class . ' fixed md:left-0 px-3 py-2 bg-light-color-1 dark:bg-dark-color-1'}}"
+        class="{{$class . ' mt-10 md:mt-0 fixed md:left-0 px-3 py-2 bg-light-color-1 dark:bg-dark-color-1'}}"
     >
-        <div class="flex justify-between mb-10">
-            <img src="{{asset($logo)}}" alt="logo" width="75">
+        <div class="flex gap-2 flex-wrap justify-between mb-10">
+            <a href="{{route('home')}}">
+                <img src="{{asset($logo)}}" alt="logo" width="75">
+            </a>
             <x-toggle-theme.toggle-theme/>
         </div>
 

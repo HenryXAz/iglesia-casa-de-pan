@@ -9,4 +9,6 @@
         rounded-lg cursor-pointer bg-light-color-2 dark:text-dark-text focus:outline-none dark:bg-dark-color-1 dark:border-dark-color-4
         dark:placeholder-gray-400 p-2
     "}}"
+
+    {{$attributes}}
 />

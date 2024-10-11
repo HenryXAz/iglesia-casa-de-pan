@@ -9,13 +9,13 @@
 </head>
 <body class="bg-light-color-2 dark:bg-dark-color-1">
 
-<div class="max-w-7xl mx-auto mt-5 flex justify-end">
-    <x-toggle-theme.toggle-theme/>
-</div>
+<x-layouts.navbar />
 
-<main class="my-6 mx-auto container">
+<main class="my-6 mx-auto container min-h-lvh  ">
     {{$slot}}
 </main>
+
+<x-layouts.footer />
 
 </body>
 </html>

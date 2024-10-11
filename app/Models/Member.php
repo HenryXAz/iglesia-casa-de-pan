@@ -11,6 +11,10 @@ class Member extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'fullname' => 'name last_name',
+    ];
+
     protected $guarded = [
         'id',
         'created_at',

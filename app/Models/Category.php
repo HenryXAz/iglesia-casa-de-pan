@@ -13,6 +13,11 @@ class Category extends Model
 
     protected $table = 'model_has_category';
 
+    protected $guarded = [
+        'id',
+        'created_at',
+    ];
+
     public function posts () : HasMany
     {
         return $this->hasMany(Post::class);
@@ -25,6 +30,6 @@ class Category extends Model
 
     public function type () : BelongsTo
     {
-        return $this->belongsTo(CategoryType::class);
+        return $this->belongsTo(CategoryType::class, 'category_type_id');
     }
 }

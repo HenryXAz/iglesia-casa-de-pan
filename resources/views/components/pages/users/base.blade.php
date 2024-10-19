@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <div class="p-4">
+    <div class="p-4  max-w-[2000px]  mx-auto min-h-screen ">
         <x-tabs.tabs
             :items="[
                 [

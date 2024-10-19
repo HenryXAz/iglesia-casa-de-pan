@@ -1,3 +1,57 @@
+{{--@props(['class' => ""])--}}
+
+{{--<div x-data="sidebar" >--}}
+{{--    --}}{{-- @alpine-show-sidebar="toggleSidebar()" --}}
+
+
+{{--    <div class="sticky flex justify-end w-full md:hidden text-gray-800 p-2 dark:text-gray-200 bg-light-color-1 dark:bg-dark-color-1"--}}
+{{--    >--}}
+{{--        <button class="text-3xl"--}}
+{{--                --}}{{-- @click="$dispatch('alpine-show-sidebar')" --}}
+{{--                @click="toggleSidebar()"--}}
+{{--        >--}}
+{{--            ☰--}}
+{{--        </button>--}}
+{{--    </div>--}}
+{{--    <div--}}
+{{--    >--}}
+{{--        <aside--}}
+
+{{--            x-show="isOpen"--}}
+{{--            x-transition--}}
+{{--            x-transiton.duration.300ms--}}
+{{--            class=""--}}
+{{--            class=" {{$class . " fixed md:left-0 px-3 py-2 bg-light-color-1 dark:bg-dark-color-1"}}"--}}
+{{--        >--}}
+
+{{--            <div class="flex justify-between mb-10">--}}
+{{--                <img src="{{asset("/images/logo.png")}}" width="50" alt="logo">--}}
+
+{{--                <x-toggle-theme.toggle-theme />--}}
+{{--            </div>--}}
+
+{{--            <x-user-card-sidebar.user-card-sidebar />--}}
+
+
+{{--            <nav>--}}
+{{--                <x-sidebar.link route="dashboard">--}}
+{{--                    Dashboard--}}
+{{--                </x-sidebar.link>--}}
+{{--                <x-sidebar.link route="home">--}}
+{{--                    Home--}}
+{{--                </x-sidebar.link>--}}
+{{--                <x-sidebar.link route="users.index">--}}
+{{--                    Usuarios--}}
+{{--                </x-sidebar.link>--}}
+{{--                --}}{{-- <x-sidebar.link route="customers.index">--}}
+{{--                    Clientes--}}
+{{--                </x-sidebar.link> --}}
+{{--            </nav>--}}
+{{--        </aside>--}}
+{{--    </div>--}}
+{{--</div>--}}
+
+
 @props(['class' => ""])
 
 @php
@@ -22,12 +76,18 @@
             'icon' => '',
             'role' => 'listar publicaciones',
         ],
+        [
+            'route' => 'special-events.index',
+            'description' => 'Gestión de actividades',
+            'icon' => '',
+            'role' => 'listar publicaciones',
+        ],
    ];
 @endphp
 
 <div x-data="sidebar">
     <div
-        class="fixed flex justify-end w-full md:hidden text-gray-800 p-2 dark:text-gray-200 bg-light-color-1 dark:bg-dark-color-1"
+        class="sticky flex justify-end w-full md:hidden text-gray-800 p-2 dark:text-gray-200 bg-light-color-1 dark:bg-dark-color-1"
     >
         <button class="text-3xl"
                 @click="toggleSidebar()"
@@ -39,7 +99,7 @@
         x-show="isOpen"
         x-transition
         x-transition.duration.300ms
-        class="{{$class . ' mt-10 md:mt-0 fixed md:left-0 px-3 py-2 bg-light-color-1 dark:bg-dark-color-1'}}"
+        class="{{$class . ' md:mt-0  md:left-0 px-3 py-2 bg-light-color-1 dark:bg-dark-color-1'}}"
     >
         <div class="flex gap-2 flex-wrap justify-between mb-10">
             <a href="{{route('home')}}">

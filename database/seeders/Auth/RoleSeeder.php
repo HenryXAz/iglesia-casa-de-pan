@@ -29,7 +29,31 @@ class RoleSeeder extends Seeder
             'crear categorias publicaciones',
             'editar categorias publicaciones',
         ],
-        ];
+
+        'administrador de actividades' => [
+            'listar actividades',
+            'crear actividades',
+            'editar actividades',
+        ],
+
+        'administrador venta de alimentos' => [
+            'crear venta de alimentos',
+            'listar venta de alimentos',
+            'editar venta de alimentos',
+        ],
+
+        'administrador autorizacion venta de alimentos' => [
+            'autorizar venta de alimentos',
+        ],
+
+        'suscriptor de actividades' => [
+            'puede inscribirse a actividades',
+        ],
+
+        'cliente venta de alimentos' => [
+            'puede ordenar alimentos',
+        ],
+    ];
 
     /**
      * Run the database seeds.

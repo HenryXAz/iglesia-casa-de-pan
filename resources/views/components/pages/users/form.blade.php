@@ -88,20 +88,29 @@
                     Asignar roles
                 </x-text.subtitle>
 
-                @foreach($roles as $role)
-                    <div class=" mt-3 flex gap-4">
-                        <x-form.label :for="$role->id">
-                            {{$role->name}}
-                        </x-form.label>
+                <x-table.table-wrapper class="max-w-xl">
+                    <x-table.table>
+                        <x-table.thead>
+                        </x-table.thead>
+                        <x-table.tbody>
+                            @foreach($roles as $role)
+                                <x-table.row>
+                                    <x-table.column>
+                                        {{$role->name}}
+                                    </x-table.column>
+                                    <x-table.column>
+                                        <x-form.checkbox
+                                            :id="$role->id"
+                                            :name="'role_' . $role->name"
+                                            :checked="($mode == 'edit' && $user->hasRole($role->name))"
+                                        />
+                                    </x-table.column>
+                                </x-table.row>
+                            @endforeach
+                        </x-table.tbody>
+                    </x-table.table>
+                </x-table.table-wrapper>
 
-                        <x-form.checkbox
-                            :id="$role->id"
-                            :name="'role_' . $role->name"
-                            :checked="($mode === 'edit') && ($user->hasRole($role->name))"
-
-                        />
-                    </div>
-                @endforeach
             </div>
 
 

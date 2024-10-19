@@ -3,6 +3,9 @@
         Gestion de Roles
     </x-text.title>
 
+
+    <x-cards.main-card class="max-w-xl">
+
     <x-table.table-wrapper class="max-w-xl mx-auto">
         <x-table.table>
             <x-table.thead>
@@ -41,5 +44,5 @@
     <div class="max-w-xl mx-auto">
         {{$roles->links()}}
     </div>
-
+    </x-cards.main-card>
 </x-pages.users.base>

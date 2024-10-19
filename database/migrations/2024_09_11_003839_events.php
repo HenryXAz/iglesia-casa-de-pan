@@ -18,14 +18,18 @@ return new class extends Migration
             $table->decimal('cost', 8, 2);
             $table->decimal('fixed_fee', 8, 2);
             $table->boolean('has_fixed_fee');
+            $table->integer('tickets_limit');
+            $table->boolean('has_tickets_limit');
             $table->boolean('is_published');
             $table->boolean('is_active');
             $table->timestamps();
+
+            $table->bigInteger('transportation_option_selected', 0)->nullable();
         });
 
         Schema::create('transportation_options', function (Blueprint $table) {
             $table->id();
-            $table->string('description', 255);
+            $table->longText('description', );
             $table->integer('total_tickets');
             $table->decimal('cost', 11, 2);
             $table->timestamps();
@@ -37,6 +41,7 @@ return new class extends Migration
             $table->id();
             $table->integer('tickets');
             $table->decimal('tickets_total_price', 8, 2);
+            $table->boolean('has_been_paid')->default(false);
             $table->timestamps();
 
             $table->foreignId('user_id')->constrained('users');

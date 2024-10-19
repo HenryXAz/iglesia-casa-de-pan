@@ -11,13 +11,18 @@ class SpecialEvent extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id',
+        'created_at',
+    ];
+
     // relations
     public function creator () : BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function subscriptons () : HasMany
+    public function subscriptions () : HasMany
     {
         return $this->hasMany(SpecialEventSubscription::class);
     }

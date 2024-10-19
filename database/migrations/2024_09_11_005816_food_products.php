@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('food_products', function (Blueprint $table) {
             $table->id();
             $table->string('title', 100);
-            $table->string('description', 200);
+            $table->string('description', 2000);
             $table->decimal('cost', 8, 2);
             $table->boolean('is_active');
             $table->boolean('is_finalized');

@@ -2,7 +2,7 @@
 
 @if ($type === 'tbody')
    <td
-    class="{{$class . " p-2 text-sm dark:text-dark-text text-light-text"}}"
+    class="{{$class . " p-2 text-xs md:text-sm dark:text-dark-text text-light-text"}}"
    >
         {{$slot}}
    </td>
@@ -10,7 +10,7 @@
 
 @if ($type === 'thead')
     <th
-        class="{{$class . " p-2 text-sm bg-light-color-2 text-light-text dark:text-dark-text dark:bg-dark-color-3
+        class="{{$class . " p-2  text-xs md:text-sm bg-light-color-2 text-light-text dark:text-dark-text dark:bg-dark-color-3
             text-left
         "}}"
     >

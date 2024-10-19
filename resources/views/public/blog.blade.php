@@ -7,9 +7,10 @@ use \App\Services\Common\DateService;
     @foreach($posts as $post)
         <a
             href="{{route('blog.show', $post->id)}}"
+            class="max-w-3xl block mx-auto"
         >
             <article>
-                <x-cards.main-card class="max-w-3xl">
+                <x-cards.main-card >
                     <x-text.paragraph class="mb-5">
                         <span class="font-bold">Autor </span>
                         {{$post->user->member->name}} {{$post->user->member->last_name}}

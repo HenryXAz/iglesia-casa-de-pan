@@ -8,7 +8,7 @@
                 <ul class="flex flex-wrap list-none items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                     <li>
                         <a href="{{route('home')}}" class="hover:underline me-4 text-light-text dark:text-dark-text md:me-6">Inicio</a>
-                        <a href="{{route('home')}}" class="hover:underline me-4 text-light-text dark:text-dark-text md:me-6">Contacto</a>
+                        <a href="{{route('contact')}}" class="hover:underline me-4 text-light-text dark:text-dark-text md:me-6">Contacto</a>
                         <a href="{{route('blog')}}" class="hover:underline me-4 text-light-text dark:text-dark-text md:me-6">Blog</a>
                     </li>
                 </ul>

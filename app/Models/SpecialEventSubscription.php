@@ -10,10 +10,17 @@ class SpecialEventSubscription extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id',
+        'created_at',
+    ];
+
+    protected  $table = 'special_events_subscriptions';
+
     // relations
     public function event () : BelongsTo
     {
-        return $this->belongsTo(SpecialEvent::class);
+        return $this->belongsTo(SpecialEvent::class, 'special_event_id');
     }
 
     public function user () : BelongsTo

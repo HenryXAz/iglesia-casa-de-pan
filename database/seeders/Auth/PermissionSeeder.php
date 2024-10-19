@@ -28,6 +28,20 @@ class PermissionSeeder extends Seeder
         'listar categorias publicaciones',
         'crear categorias publicaciones',
         'editar categorias publicaciones',
+
+        'listar actividades',
+        'crear actividades',
+        'editar actividades',
+
+        'crear venta de alimentos',
+        'listar venta de alimentos',
+        'editar venta de alimentos',
+
+        'autorizar venta de alimentos',
+
+        'puede inscribirse a actividades',
+
+        'puede ordenar alimentos',
     ];
 
 

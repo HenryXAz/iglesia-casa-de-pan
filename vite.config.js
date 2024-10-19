@@ -7,17 +7,18 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/css/toggle-theme.js',
+                'resources/js/toggle_theme.js',
                 'resources/js/posts_section.js',
+                'resources/js/tinymce.js',
             ],
             refresh: true,
         }),
     ],
 
     server: {
-        host: '172.23.0.8',
+        host: '192.168.1.54:5173',
         hmr: {
-            host: '192.168.1.25',
+            host: '192.168.1.54',
         }
     }
 });

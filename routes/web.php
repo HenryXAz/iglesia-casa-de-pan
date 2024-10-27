@@ -5,6 +5,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Public\BlogController;
 use App\Http\Controllers\Public\SpecialEventController;
+use App\Http\Controllers\Public\FoodProductController;
 
 // public routes
 Route::get('/', function () {
@@ -23,8 +24,8 @@ Route::get('/blog', [BlogController::class, 'index'])
 Route::get('/blog/{id}', [BlogController::class, 'show'])
 ->name('blog.show');
 
-Route::get('/contacto', [ContactController::class, 'index'])
-->name('contact');
+//Route::get('/contacto', [ContactController::class, 'index'])
+//->name('contact');
 
 // Dashboard routes
 Route::get('/dashboard', function () {
@@ -57,6 +58,27 @@ Route::get('/exclusivo/{id}/mis-suscripciones', [SpecialEventController::class, 
     ->name('special-events.public.subscription_detail');
 
 
+// food products routes
+
+Route::get('/venta-de-alimentos', [FoodProductController::class, 'index'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede ordenar alimentos'])
+    ->name('food_products.public.index');
+
+Route::get('/venta-de-alimentos/{id}/ordenar', [FoodProductController::class, 'show'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede ordenar alimentos'])
+    ->name('food_products.public.show');
+
+Route::post('/venta-de-alimentos/{id}/hacer-orden', [FoodProductController::class, 'makeOrder'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede ordenar alimentos'])
+    ->name('food_products.public.make_order');
+
+Route::get('/ventas-de-alimentos/mis-ordenes', [FoodProductController::class, 'myFoodProducts'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede ordenar alimentos' ])
+    ->name('food_products.public.my_food_orders');
+
+Route::get('/venta-de-alimentos/mis-ordenes/{order}/detalle', [FoodProductController::class, 'myFoodProductDetail'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede ordenar alimentos' ])
+    ->name('food_products.public.my_food_product_detail');
 
 // ui test routes
 if (app('env') === 'local') {

@@ -20,16 +20,6 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVer
     ];
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-//    protected $fillable = [
-//        'identifier',
-//        'password',
-//    ];
-
-    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -85,16 +75,21 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVer
 
     public function foodProducts () : HasMany
     {
-        return $this->hasMany(FoodProduct::class);
+        return $this->hasMany(FoodProduct::class)->where('is_finalized', false);
     }
 
     public  function orders () : HasMany
     {
-        return $this->hasMany(FoodProductOrder::class);
+        return $this->hasMany(FoodProductOrder::class)
+            ->whereHas('foodProduct', function($query){
+                return $query->where('is_finalized', false);
+            });
     }
 
     public function deliveries () : HasMany
     {
-        return $this->hasMany(FoodProductOrder::class);
+        return $this->hasMany(FoodProductOrder::class, 'delivery_id')->whereHas('foodProduct', function($query){
+            return $query->where('is_finalized', false);
+        });
     }
 }

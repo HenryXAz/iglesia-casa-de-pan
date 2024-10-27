@@ -1,8 +1,8 @@
 @props(['variant' => 'primary', 'type' => 'button', 'href' => ''])
 
 @php
-$commonClassesSolidButton = "border-2 border-transparent outline-none text-dark-text";
-$commonClassesTransparentButton = "border-2 border-transparent outline-none bg-transparent";
+$commonClassesSolidButton = "border-2 border-transparent outline-none text-dark-text text-sm md:text-base";
+$commonClassesTransparentButton = "border-2 border-transparent outline-none bg-transparent text-sm md:text-base";
 
 $variantButton = match($variant) {
     'primary' =>
@@ -17,7 +17,8 @@ $variantButton = match($variant) {
         $commonClassesSolidButton . ' bg-black dark:focus:border-black focus:outline-black',
     'gray' =>
         $commonClassesSolidButton . ' bg-gray-200 dark:bg-gray-700 dark:focus:border-gray-600 focus:outline-gray-600 dark:text-dark-text text-light-text',
-     'blue' => ' bg-blue-700 text-dark-text dark:focus:border-blue-500 focus:outline-blue-600',
+     'blue' =>
+        $commonClassesSolidButton . ' bg-blue-700 text-dark-text dark:focus:border-blue-500 focus:outline-blue-600',
     'secondary-transparent' =>
         $commonClassesTransparentButton . ' focus:outline-dark-gold dark:text-dark-gold text-light-gold',
     'danger-transparent' =>

@@ -190,7 +190,7 @@
 
                 <x-form.input type="date" name="birthday"
                               date-date-format="dd/mm/YYYY"
-                              :value="($mode == 'edit') && $user?->member?->optionalInformation?->birthday->toDateString()"
+                              :value="($mode == 'edit' && $user?->member?->optionalInformation->birthday != null) && $user?->member?->optionalInformation?->birthday->toDateString()"
                 />
 
                 <x-error-message.error-message for="birthday" />

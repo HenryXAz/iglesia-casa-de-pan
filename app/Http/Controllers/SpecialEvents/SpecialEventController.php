@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class SpecialEventController extends Controller
 {
-    private const EVENTS_PER_PAGE = 2;
+    private const EVENTS_PER_PAGE = 10;
 
     private function eventHasTransportationOptions(Request $request)
     {
@@ -110,6 +110,10 @@ class SpecialEventController extends Controller
         $transportationOptions = $specialEvent->transportationOptions;
 
         if ($specialEvent == null) {
+            abort(404);
+        }
+
+        if ($specialEvent->user_id != Auth::user()->id) {
             abort(404);
         }
 

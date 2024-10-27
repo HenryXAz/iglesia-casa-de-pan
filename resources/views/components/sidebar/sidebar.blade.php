@@ -1,57 +1,3 @@
-{{--@props(['class' => ""])--}}
-
-{{--<div x-data="sidebar" >--}}
-{{--    --}}{{-- @alpine-show-sidebar="toggleSidebar()" --}}
-
-
-{{--    <div class="sticky flex justify-end w-full md:hidden text-gray-800 p-2 dark:text-gray-200 bg-light-color-1 dark:bg-dark-color-1"--}}
-{{--    >--}}
-{{--        <button class="text-3xl"--}}
-{{--                --}}{{-- @click="$dispatch('alpine-show-sidebar')" --}}
-{{--                @click="toggleSidebar()"--}}
-{{--        >--}}
-{{--            ☰--}}
-{{--        </button>--}}
-{{--    </div>--}}
-{{--    <div--}}
-{{--    >--}}
-{{--        <aside--}}
-
-{{--            x-show="isOpen"--}}
-{{--            x-transition--}}
-{{--            x-transiton.duration.300ms--}}
-{{--            class=""--}}
-{{--            class=" {{$class . " fixed md:left-0 px-3 py-2 bg-light-color-1 dark:bg-dark-color-1"}}"--}}
-{{--        >--}}
-
-{{--            <div class="flex justify-between mb-10">--}}
-{{--                <img src="{{asset("/images/logo.png")}}" width="50" alt="logo">--}}
-
-{{--                <x-toggle-theme.toggle-theme />--}}
-{{--            </div>--}}
-
-{{--            <x-user-card-sidebar.user-card-sidebar />--}}
-
-
-{{--            <nav>--}}
-{{--                <x-sidebar.link route="dashboard">--}}
-{{--                    Dashboard--}}
-{{--                </x-sidebar.link>--}}
-{{--                <x-sidebar.link route="home">--}}
-{{--                    Home--}}
-{{--                </x-sidebar.link>--}}
-{{--                <x-sidebar.link route="users.index">--}}
-{{--                    Usuarios--}}
-{{--                </x-sidebar.link>--}}
-{{--                --}}{{-- <x-sidebar.link route="customers.index">--}}
-{{--                    Clientes--}}
-{{--                </x-sidebar.link> --}}
-{{--            </nav>--}}
-{{--        </aside>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-
 @props(['class' => ""])
 
 @php
@@ -81,6 +27,18 @@
             'description' => 'Gestión de actividades',
             'icon' => '',
             'role' => 'listar publicaciones',
+        ],
+        [
+            'route' => 'food_products.index',
+            'description' => 'Venta de alimentos',
+            'icon' => '',
+            'role' => 'listar venta de alimentos',
+        ],
+        [
+            'route' => 'food_deliveries.index',
+            'description' => 'Entregas',
+            'icon' => '',
+            'role' => 'entregar ordenes de venta de alimentos',
         ],
    ];
 @endphp

@@ -27,6 +27,10 @@ return Application::configure(basePath: dirname(__DIR__))
             Route::middleware('web')
                 ->prefix('eventos')
                 ->group(base_path('routes/events.php'));
+
+            Route::middleware('web')
+                ->prefix('/ventas-comida')
+                ->group(base_path('routes/food_products.php'));
         }
     )
     ->withMiddleware(function (Middleware $middleware) {

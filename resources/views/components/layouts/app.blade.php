@@ -6,7 +6,7 @@
     <title>{{ config("app.name") }}</title>
     @vite(["resources/js/app.js", "resources/css/app.css", "resources/js/tinymce.js"])
 </head>
-<body class="bg-light-color-2 dark:bg-dark-color-1">
+<body class="bg-light-color-2 dark:bg-dark-color-1 font-sans">
 <x-sidebar.sidebar class="md:w-[250px] w-full fixed h-full" />
 
 <main class="md:ml-[250px]">

@@ -12,6 +12,19 @@ class FoodProduct extends Model
 {
     use HasFactory;
 
+    public function  casts()
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
+
+    protected $guarded = [
+        'id',
+        'created_at',
+    ];
+
     // relations
     public function creator () : BelongsTo
     {
@@ -35,6 +48,6 @@ class FoodProduct extends Model
 
     public function images () : MorphMany
     {
-        return $this->morphMany(ModelHasImages::class, 'images');
+        return $this->morphMany(ModelHasImages::class, 'immageable');
     }
 }

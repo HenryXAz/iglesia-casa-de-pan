@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('food_products', function (Blueprint $table) {
             $table->id();
             $table->string('title', 100);
-            $table->string('description', 2000);
+            $table->longText('description');
             $table->decimal('cost', 8, 2);
+            $table->decimal('total_profits', 8, 2);
+            $table->decimal('price_per_unit', 8,2);
+            $table->decimal('total_real_profits',8, 2);
+            $table->integer('stock');
             $table->boolean('is_active');
             $table->boolean('is_finalized');
             $table->boolean('is_published');
@@ -39,13 +43,21 @@ return new class extends Migration
             $table->decimal('unit_price', 8, 2);
             $table->decimal('total_order_price', 8, 2);
             $table->integer('total');
-            $table->boolean('is_paid');
+            $table->boolean('has_been_delivered');
+            $table->boolean('has_been_paid');
             $table->timestamps();
 
             $table->foreignId('food_product_id')->constrained('food_products');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('delivery_id')->nullable()->constrained('users');
         });
+
+//        Schema::create('food_product_food_product_order', function(Blueprint $table){
+//            $table->id('id');
+//
+//            $table->foreignId('food_product_id')->constrained('food_products');
+//            $table->foreignId('order_id')->constrained('food_product_orders');
+//        });
     }
 
     /**

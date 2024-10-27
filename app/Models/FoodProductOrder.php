@@ -13,12 +13,12 @@ class FoodProductOrder extends Model
     // relations
     public function foodProduct(): BelongsTo
     {
-        return $this->belongsTo(FoodProduct::class);
+        return $this->belongsTo(FoodProduct::class, 'food_product_id');
     }
 
     public function customer () : BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function delivery () : BelongsTo

@@ -16,6 +16,10 @@
                 </div>
             @endcan
 
+            <x-search.search
+                route="posts.index"
+            />
+
             @if(count($posts) == 0)
                 <x-text.paragraph position="center">
                     Aún no hay publicaciones

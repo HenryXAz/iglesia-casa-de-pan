@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-pages.users.base>
     <x-error-message.error-message
         for="creation_error"
     />
@@ -7,4 +7,4 @@
         :roles="$roles"
     />
 
-</x-layouts.app>
+</x-pages.users.base>

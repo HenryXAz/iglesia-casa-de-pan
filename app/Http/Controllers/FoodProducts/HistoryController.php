@@ -10,9 +10,16 @@ use Illuminate\Http\Request;
 class HistoryController extends Controller
 {
     public function index() {
-        $foodProducts = FoodProduct::where('is_finalized', true)
+        $foodProducts = (request()->has('buscar'))
+            ?
+            FoodProduct::where('is_finalized', true)
+                ->where('title', 'like', '%' . request('buscar') . '%')
+                ->paginate(10)
+            :
+            FoodProduct::where('is_finalized', true)
             ->where('is_published', true)
             ->paginate(10);
+            ;
 
         return view('pages.food-products.history.index', compact('foodProducts'));
     }

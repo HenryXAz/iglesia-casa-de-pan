@@ -15,6 +15,10 @@
             </div>
         @endcan
 
+        <x-search.search
+            route="users.index"
+        />
+
         <x-table.table-wrapper>
             <x-table.table>
                 <x-table.thead>

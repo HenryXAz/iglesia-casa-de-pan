@@ -5,6 +5,10 @@
         </x-text.title>
 
         <x-cards.main-card>
+            <x-search.search
+                route="food_products_history.index"
+            />
+
             @if(count($foodProducts) > 0)
                 <x-table.table-wrapper>
                     <x-table.table>

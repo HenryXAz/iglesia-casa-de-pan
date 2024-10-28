@@ -37,24 +37,24 @@ Route::get('/dashboard', function () {
 
 // special events routes
 Route::get('/exclusivo/actividades', [SpecialEventController::class, 'index'])
-    ->middleware(['auth', 'user_activated', 'verified'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede inscribirse a actividades'])
 ->name('special-events.public.index');
 
 Route::get('/exclusivo/{id}/actividad', [SpecialEventController::class, 'show'])
-    ->middleware(['auth', 'user_activated', 'verified'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede inscribirse a actividades'])
     ->name('special-events.public.show');
 
 Route::post('/exclusivo/suscripcion/{id}/actividad', [SpecialEventController::class, 'subscribe'])
-    ->middleware(['auth', 'user_activated', 'verified'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede inscribirse a actividades'])
 ->name('special-events.public.subscription');
 
 
 Route::get('/exclusivo/mis-suscripciones', [SpecialEventController::class, 'mySubscriptions'])
-    ->middleware(['auth', 'user_activated', 'verified'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede inscribirse a actividades'])
     ->name('special-events.public.my_subscriptions');
 
 Route::get('/exclusivo/{id}/mis-suscripciones', [SpecialEventController::class, 'subscriptionDetail'])
-    ->middleware(['auth', 'user_activated', 'verified'])
+    ->middleware(['auth', 'user_activated', 'verified', 'can:puede inscribirse a actividades'])
     ->name('special-events.public.subscription_detail');
 
 

@@ -1,6 +1,7 @@
 <x-layouts.guest>
     <x-pages.auth.login-page-base>
         <x-cards.main-card>
+
             <x-form.form
                 action="{{route('login.email.post')}}"
             >

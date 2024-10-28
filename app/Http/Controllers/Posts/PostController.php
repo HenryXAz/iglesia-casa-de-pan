@@ -17,12 +17,20 @@ class PostController extends Controller
 {
     use AuthorizesRequests;
 
-    private const POSTS_PER_PAGE = 2;
+    private const POSTS_PER_PAGE = 10;
 
     public function index()
     {
         $userId = Auth::user()->id;
-        $posts = Post::where('user_id', $userId)->paginate(self::POSTS_PER_PAGE);
+
+        $posts = (request()->has('buscar'))
+            ?
+            Post::where('user_id', $userId)
+                ->where('title', 'like', '%' . request('buscar') . '%')
+                ->paginate(self::POSTS_PER_PAGE)
+            :
+                Post::where('user_id', $userId)->paginate(self::POSTS_PER_PAGE);
+            ;
 
         return view('pages.posts.index', compact('posts'));
     }

@@ -9,6 +9,7 @@ use App\Http\Requests\Users\UpdateUserRequest;
 use App\Models\Member;
 use App\Models\MemberOptionalInformation;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -20,7 +21,17 @@ class UserController extends Controller
 
     public  function index()
     {
-        $users = UserDto::collect(User::paginate(self::USERS_PER_PAGE));
+        $users = (request()->has('buscar'))
+            ?
+            UserDto::collect(User::where('identifier', 'like', '%' . request('buscar') . '%')->orWhereHas('member', function($query){
+                $queryString = '%' . request('buscar') . '%';
+                    return $query->where('name', 'like', $queryString)
+                        ->orWhere('last_name', 'like', $queryString);
+                })->paginate(self::USERS_PER_PAGE))
+            :
+            UserDto::collect(User::paginate(self::USERS_PER_PAGE));
+            ;
+
         return view('pages.users.index', compact('users'));
     }
 

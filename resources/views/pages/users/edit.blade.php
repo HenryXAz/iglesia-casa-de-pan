@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-pages.users.base>
     <x-success-message.success-message
         message="update_success"
         position="center"
@@ -14,4 +14,4 @@
         :roles="$roles"
         :user="$user"
    />
-</x-layouts.app>
+</x-pages.users.base>

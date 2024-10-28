@@ -8,16 +8,16 @@
     x-data="user_card_sidebar"
 >
     <button
-        class="text-base dark:bg-main-primary-hard bg-main-primary-hard/75 text-gray-800 rounded-md border-gray-300 dark:border-x-dark-color-4 p-2 wire:bg-transparent outline-none flex justify-between items-center w-full hover:cursor-pointer"
+        class="text-base dark:bg-main-primary-hard bg-main-primary-hard/75 text-gray-800 rounded-md border-gray-300 dark:border-x-dark-color-4 p-2 wire:bg-transparent outline-none flex justify-between items-center w-full hover:cursor-pointer overflow-x-auto"
         @click="openOptions"
     >
-        <text- class="text-sm dark:text-dark-text text-gray-200">
+        <text- class="text-xs md:text-sm dark:text-dark-text text-gray-200">
             {{Auth::user()->identifier}}
         </text->
-        <span class="{{$spanClasses}}" x-show="!showOptions">
+        <span class="{{$spanClasses . " hidden sm:block"}}" x-show="!showOptions">
             ▼
         </span>
-        <span class="{{$spanClasses}}" x-show="showOptions">
+        <span class="{{$spanClasses. " hidden sm:block"}}" x-show="showOptions">
             ▲
         </span>
     </button>
@@ -26,11 +26,11 @@
         x-transition
         x-transition.duration.300ms
     >
-        <li>
-            <x-user-card-sidebar.link href="#">
-                Perfil
-            </x-user-card-sidebar.link>
-        </li>
+{{--        <li>--}}
+{{--            <x-user-card-sidebar.link href="#">--}}
+{{--                Perfil--}}
+{{--            </x-user-card-sidebar.link>--}}
+{{--        </li>--}}
         <li>
             <x-form.form method="POST"  action="{{route('logout')}}">
                 <x-user-card-sidebar.link type="submit">

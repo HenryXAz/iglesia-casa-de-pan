@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Public\ContactController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
@@ -28,9 +29,7 @@ Route::get('/blog/{id}', [BlogController::class, 'show'])
 //->name('contact');
 
 // Dashboard routes
-Route::get('/dashboard', function () {
-    return view('pages.dashboard.index');
-})
+Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['verified'])
     ->name('dashboard');
 

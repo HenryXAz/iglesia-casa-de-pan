@@ -8,7 +8,7 @@ $institution_logo = '/images/institution_logo.jpg';
             'route' => 'dashboard',
             'description' => 'Dashboard',
             'icon' => '',
-            'role' => '',
+            'role' => 'listar usuarios',
         ],
         [
             'route' => 'users.index',

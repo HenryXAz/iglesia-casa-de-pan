@@ -6,12 +6,6 @@
     $ticketPrice = number_format(PricesCalculator::calcultateTicketCost($specialEvent), 2, '.', ',');
 @endphp
 
-{{--@if($errors->any())--}}
-{{--    @foreach($errors->all() as $error)--}}
-{{--        {{$error}}--}}
-{{--    @endforeach--}}
-{{--@endif--}}
-
 <x-layouts.guest>
     <x-cards.container>
 

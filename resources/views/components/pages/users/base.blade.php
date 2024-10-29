@@ -1,5 +1,6 @@
 <x-layouts.app>
-    <div class="p-4  max-w-[2000px]  mx-auto min-h-screen ">
+    <x-cards.container>
+
         <x-tabs.tabs
             :items="[
                 [
@@ -16,5 +17,5 @@
         />
 
         {{$slot}}
-    </div>
+    </x-cards.container>
 </x-layouts.app>

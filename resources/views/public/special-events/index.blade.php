@@ -1,6 +1,6 @@
-
 <x-layouts.guest>
-    <div class="m-4">
+    <x-cards.container>
+
         <x-text.title>
             Actividades Especiales
         </x-text.title>
@@ -23,18 +23,14 @@
                             :href="route('special-events.public.show', $specialEvent->id)"
                             variant="blue"
                         >
-                           Inscribirse
+                            Inscribirse
                         </x-button.button>
                     </div>
                 </div>
 
-
             @endforeach
 
 
-
-
         </x-cards.main-card>
-
-    </div>
+    </x-cards.container>
 </x-layouts.guest>

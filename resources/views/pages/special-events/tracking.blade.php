@@ -4,7 +4,7 @@
 @endphp
 
 <x-layouts.app>
-    <div class="m-4 max-w-[2000px] mx-auto">
+    <x-cards.container>
 
         <x-text.title>
             Seguimiento de actividad
@@ -26,7 +26,7 @@
                     <span class="font-bold">
                         {{$event->tickets_limit}}
                     </span>
-                    tickets disponibles
+                    tickets Totales
                 </x-text.paragraph>
                 <x-text.paragraph class=" flex  justify-center items-center gap-2 flex-wrap">
                     Estado de actividad
@@ -139,5 +139,5 @@
             </div>
 
         </x-cards.main-card>
-    </div>
+    </x-cards.container>
 </x-layouts.app>

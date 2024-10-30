@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('special_events', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->string('description', 255);
+            $table->longText('description', 255);
             $table->decimal('cost', 8, 2);
             $table->decimal('fixed_fee', 8, 2);
             $table->boolean('has_fixed_fee');
@@ -25,6 +25,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->bigInteger('transportation_option_selected', 0)->nullable();
+
+            $table->foreignId('user_id')->constrained('users');
         });
 
         Schema::create('transportation_options', function (Blueprint $table) {

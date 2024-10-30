@@ -144,7 +144,7 @@ use \App\Enums\Users\UserState;
 
                 <x-text.paragraph class="mt-5">
                    Edad: <span class="font-bold">
-                        {{$user->member->optionalInformation->birthday->diff(now())->format('%Y años')}}
+                        {{$user->member?->optionalInformation?->birthday != null ? $user->member->optionalInformation->birthday->diff(now())->format('%Y años') : 'NO DISPONIBLE'}}
                     </span>
                 </x-text.paragraph>
 

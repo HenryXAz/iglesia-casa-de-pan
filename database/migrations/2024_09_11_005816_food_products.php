@@ -52,12 +52,6 @@ return new class extends Migration
             $table->foreignId('delivery_id')->nullable()->constrained('users');
         });
 
-//        Schema::create('food_product_food_product_order', function(Blueprint $table){
-//            $table->id('id');
-//
-//            $table->foreignId('food_product_id')->constrained('food_products');
-//            $table->foreignId('order_id')->constrained('food_product_orders');
-//        });
     }
 
     /**

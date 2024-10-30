@@ -18,7 +18,6 @@
 
             <x-text.paragraph>
                 {{$foodProduct->description}}
-{{--                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula suscipit risus, ac rutrum ex sagittis id. Integer egestas, nibh et gravida feugiat, ex lectus accumsan erat, eget eleifend elit ipsum ut sapien. In tincidunt ornare consequat. Mauris condimentum condimentum nibh, nec aliquam enim volutpat at. Duis in rutrum magna. Suspendisse aliquet vitae tortor in mollis. Donec vestibulum vitae diam ac fringilla. Quisque tincidunt et ex id aliquet. Vestibulum ut condimentum ex. Proin sit amet tincidunt nisi, auctor iaculis purus.--}}
             </x-text.paragraph>
 
             <div class="flex justify-center gap-4 flex-col bg-color-2 dark:bg-dark-color-1 p-2 rounded-md mt-5 ">

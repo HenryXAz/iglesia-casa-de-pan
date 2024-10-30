@@ -3,9 +3,9 @@
 ])
 
 <div class="p-4">
-   <x-text.title>
-       {{$title}}
-   </x-text.title>
+    <x-text.title>
+        {{$title}}
+    </x-text.title>
 
     <x-cards.main-card>
         <x-form.form
@@ -17,8 +17,8 @@
 
             <x-form.label for="identifier">
                 Identificardor:
-                <x-form.input type="textl" name="identifier" :value="$user->identifier ?? ''"  />
-                <x-error-message.error-message for="identifier" />
+                <x-form.input type="textl" name="identifier" :value="$user->identifier ?? ''"/>
+                <x-error-message.error-message for="identifier"/>
             </x-form.label>
 
             <x-text.paragraph class="mt-5">
@@ -27,10 +27,10 @@
                 @if ($mode == 'edit')
                     <span class="p-2 rounded-md bg-blue-700 text-dark-text">
                     @if ($user->type == 'EMAIL_USER')
-                       EMAIL
+                            EMAIL
                         @endif
-                    @if($user->type == 'USERNAME')
-                        NOMBRE DE USUARIO
+                        @if($user->type == 'USERNAME')
+                            NOMBRE DE USUARIO
                         @endif
                     </span>
                 @endif
@@ -55,7 +55,7 @@
                                         :checked="($mode === 'edit') && ($user->type === 'USERNAME')"
                     />
 
-                    <x-error-message.error-message for="type" />
+                    <x-error-message.error-message for="type"/>
                 @endif
             </div>
 
@@ -68,18 +68,18 @@
                 <x-form.label for="active">
                     Activo:
                     <x-form.radiobutton name="is_active" id="active" value="1"
-                        :checked="($mode == 'edit') && ($user->is_active == true)"
+                                        :checked="($mode == 'edit') && ($user->is_active == true)"
                     />
                 </x-form.label>
 
                 <x-form.label for="inactive">
                     Inactivo:
                     <x-form.radiobutton name="is_active" id="inactive" value="0"
-                        :checked="($mode == 'edit') && ($user->is_active == false)"
+                                        :checked="($mode == 'edit') && ($user->is_active == false)"
                     />
                 </x-form.label>
 
-                <x-error-message.error-message for="is_active" />
+                <x-error-message.error-message for="is_active"/>
 
             </div>
 
@@ -123,83 +123,99 @@
             <x-form.label>
                 Nombres:
                 <x-form.input type="text" name="name"
-                    :value="$user->member->name ?? ''"
+                              :value="$user->member->name ?? ''"
                 />
 
-                <x-error-message.error-message for="name" />
+                <x-error-message.error-message for="name"/>
             </x-form.label>
 
             <x-form.label for="last_name">
                 Apellidos:
                 <x-form.input type="text" name="last_name"
-                    :value="$user->member->last_name ?? ''"
+                              :value="$user->member->last_name ?? ''"
                 />
 
-                <x-error-message.error-message for="last_name" />
+                <x-error-message.error-message for="last_name"/>
             </x-form.label>
 
 
-           <x-text.subtitle type="h3">
+            <x-text.subtitle type="h3">
                 (Información opcional)
-           </x-text.subtitle>
+            </x-text.subtitle>
 
-           <div class="my-5">
-               <div class="flex gap-4">
+            <div class="my-5">
+                <div class="flex gap-4">
 
-                  @if($mode == 'create' || $user?->member?->optionalInformation == null)
-                       <x-text.paragraph>
-                           ¿Va a agregar información opcional?
-                       </x-text.paragraph>
-                       <x-form.label for="yes">
-                           Sí
-                           <x-form.radiobutton name="optional_info" id="yes" value="1"
-                                               :checked="($mode === 'edit') && ($user?->member?->optionalInformation != null)"
-                           />
-                       </x-form.label>
+                    @if($mode == 'create' || $user?->member?->optionalInformation == null)
+                        <x-text.paragraph>
+                            ¿Va a agregar información opcional?
+                        </x-text.paragraph>
+                        <x-form.label for="yes">
+                            Sí
+                            <x-form.radiobutton name="optional_info" id="yes" value="1"
+                                                :checked="($mode === 'edit') && ($user?->member?->optionalInformation != null)"
+                            />
+                        </x-form.label>
 
-                       <x-form.label for="no">
-                           No
-                           <x-form.radiobutton name="optional_info" id="no" value="0"
-                                               :checked="($mode === 'edit') && ($user?->member?->optionalInformation == null)"
-                           />
-                       </x-form.label>
-                      @else
-                      <input type="hidden" value="1"  name="optional_info" />
-                   @endif
-               </div>
-           </div>
+                        <x-form.label for="no">
+                            No
+                            <x-form.radiobutton name="optional_info" id="no" value="0"
+                                                :checked="($mode === 'edit') && ($user?->member?->optionalInformation == null)"
+                            />
+                        </x-form.label>
+                    @else
+                        <input type="hidden" value="1" name="optional_info"/>
+                    @endif
+                </div>
+            </div>
 
             <x-form.label for="phone_number">
                 Número de teléfono:
                 <x-form.input type="text" name="phone_number"
-                    :value="$user->member->optionalInformation->phone_number ?? ''"
+                              :value="$user->member->optionalInformation->phone_number ?? ''"
                 />
-                <x-error-message.error-message for="phone_number" />
+                <x-error-message.error-message for="phone_number"/>
             </x-form.label>
 
             <x-form.label for="address">
                 Dirección:
                 <x-form.input type="text" name="address"
-                    :value="$user->member->optionalInformation->address ?? ''"
+                              :value="$user->member->optionalInformation->address ?? ''"
                 />
-                <x-error-message.error-message for="address" />
+                <x-error-message.error-message for="address"/>
             </x-form.label>
 
-            <x-form.label for="birthday">
-                Fecha de nacimiento:
+{{--            @if($mode == 'create')--}}
+                <x-form.label for="birthday">
+                    Fecha de nacimiento:
 
-                <x-form.input type="date" name="birthday"
-                              date-date-format="dd/mm/YYYY"
-                              :value="($mode == 'edit' && $user?->member?->optionalInformation->birthday != null) && $user?->member?->optionalInformation?->birthday->toDateString()"
-                />
+                    <x-form.input type="date" name="birthday"
 
-                <x-error-message.error-message for="birthday" />
-            </x-form.label>
+                                  :value="($mode == 'edit' && $user?->member?->optionalInformation?->birthday) ? $user?->member?->optionalInformation?->birthday->format('Y-m-d') : now()->format('Y-m-d')"
+{{--                                  value="($mode == 'edit' && $user?->member?->optionalInformation?->birthday) ? $user?->member?->optionalInformation?->birthday->format('m-d-Y') : now()->format('m-d-Y')"--}}
+                        {{--                                      value="($mode == 'edit' && $user?->member?->optionalInformation->birthday != null) && $user?->member?->optionalInformation?->birthday->toDateString()"--}}
+                    />
+
+                    <x-error-message.error-message for="birthday"/>
+                </x-form.label>
+{{--            @endif--}}
+
+{{--            @if($mode == 'edit')--}}
+
+{{--                <x-form.label for="birthday">--}}
+{{--                    Edad:--}}
+{{--                    <x-form.input--}}
+{{--                        :value="($user->member?->optionalInformation?->birthday != null) ? $user->member->optionalInformation->birthday->diff(now())->format('%Y años') : 'NO DISPONIBLE'"--}}
+{{--                        readonly--}}
+{{--                    />--}}
+{{--                </x-form.label>--}}
+
+{{--            @endif--}}
 
             <x-form.label for="dpi">
                 DPI:
                 <x-form.input type="text" name="dpi"
-                    :value="$user->member->optionalInformation->dpi ?? ''"
+                              :value="$user->member->optionalInformation->dpi ?? ''"
                 />
                 <x-error-message.error-message for="dpi"/>
             </x-form.label>

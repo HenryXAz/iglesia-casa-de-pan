@@ -59,13 +59,13 @@ class FoodProductController extends Controller
             $foodProductOrder->has_been_delivered = false;
             $foodProductOrder->has_been_paid = false;
             $foodProductOrder->user_id = Auth::user()->id;
+            $foodProductOrder->food_product_id = $foodProduct->id;
 
             $foodProductOrder->unit_price = $foodProduct->price_per_unit;
+            $foodProductOrder->saveOrFail();
+
             $foodProduct->stock -= $foodProductOrder->total;
-
-
-            $foodProduct->save();
-            $foodProductOrder->save();
+            $foodProduct->saveOrFail();
 
             DB::commit();
             return back()

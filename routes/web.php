@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Public\ContactController;
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Public\BlogController;
 use App\Http\Controllers\Public\SpecialEventController;
@@ -15,8 +14,7 @@ Route::get('/', function () {
 
 Route::get('/inicio', function () {
 
-    $post = Post::where('id', 8)->first();
-    return view('public.home', compact('post'));
+    return view('public.home');
 })->name('home');
 
 Route::get('/blog', [BlogController::class, 'index'])

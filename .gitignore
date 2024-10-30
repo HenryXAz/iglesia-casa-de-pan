@@ -3,8 +3,8 @@
 /public/build
 /public/hot
 /public/storage
-/public/images/posts/
-/public/images/food-products/
+/public/images/posts
+/public/images/food-products
 /storage/*.key
 /vendor
 .env

@@ -8,6 +8,7 @@ use App\Http\Requests\Auth\ResetEmailPasswordRequest;
 use App\Mail\Auth\EmailRestorePasswordMail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -32,6 +33,11 @@ class RestorePasswordController extends Controller
         }
 
         $id = $request->id;
+
+        if (Auth::user() && $id != Auth::user()->id) {
+            abort(404);
+        }
+
         return view('pages.auth.restore-email-password', compact('id'));
     }
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title', 60);
-            $table->string('description', 2000);
+            $table->longtext('description', 2000);
             $table->longText('content');
             $table->boolean('is_published');
             $table->boolean('is_active');

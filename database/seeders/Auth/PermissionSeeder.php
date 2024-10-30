@@ -42,6 +42,10 @@ class PermissionSeeder extends Seeder
         'puede inscribirse a actividades',
 
         'puede ordenar alimentos',
+
+        'entregar ordenes de venta de alimentos',
+
+        'ver dashboard'
     ];
 
 

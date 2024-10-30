@@ -57,8 +57,9 @@ class OrderController extends Controller
 
             $delivery = $request->input('delivery');
             $order->delivery_id = $delivery;
-            $order->save();
+            $order->saveOrFail();
 
+            DB::commit();
             return back()
                 ->with(['assign_delivery_success' => 'Se realizó la operación con éxito']);
         } catch (\Throwable $th) {

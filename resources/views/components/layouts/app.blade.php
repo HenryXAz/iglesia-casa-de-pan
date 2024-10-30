@@ -118,8 +118,6 @@ $institution_logo = '/images/institution_logo.jpg';
                                         @if(Auth::user()->can($link['role']) || $link['role'] == '')
                                             <li> <a class="{{'hover:text-dark-gold ' . (request()->routeIs($link['route']) ? ' text-main-primary-hard '  : '')}}" href="{{route($link['route'])}}"> {{$link['description']}}</a> </li>
                                         @endif
-{{--                                    <li> <a class="{{'hover:text-dark-gold ' . (request()->routeIs('users.index')) ? ' text-main-primary-hard '  : ''}}" href="{{route('users.index')}}"> Usuarios</a> </li>--}}
-
                                     @endforeach
                                 </ul>
 
@@ -160,6 +158,5 @@ $institution_logo = '/images/institution_logo.jpg';
 
 </body>
 </html>
-
 
 

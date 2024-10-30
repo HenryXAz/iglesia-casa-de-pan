@@ -7,13 +7,14 @@
         <x-cards.main-card class="flex gap-2 max-w-5xl flex-col lg:flex-row">
             @if(count(Auth::user()->orders) > 0)
                 @foreach(Auth::user()->orders as $order)
+
                     <div class="w-full lg:w-1/2 dark:bg-dark-color-1 bg-light-color-2 p-4 rounded-md">
                         <x-text.paragraph position="center">
                             {{$order->foodProduct->title}}
                         </x-text.paragraph>
 
                         @if($order->foodProduct->images->first() == null)
-                            --}}
+
                             <div class="my-5 flex justify-center">
                                 <x-icons.food-icon/>
                             </div>

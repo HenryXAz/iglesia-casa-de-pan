@@ -37,17 +37,20 @@
             <x-error-message.error-message for="description"/>
         </x-form.label>
 
-            <x-form.label for="fixed_fee">
-                        Cuota Fija (Opcional)
-                        <x-form.input
-                            name="fixed_fee"
-                            id="fixed_fee"
-                            placeholder="0.00"
-                            :value="($mode ==  'edit') ? $specialEvent->fixed_fee : ''"
-                        />
+       @if($mode == 'edit')
+                <x-form.label for="fixed_fee">
+                    Cuota Fija (Opcional)
+                    <x-form.input
+                        name="fixed_fee"
+                        id="fixed_fee"
+                        placeholder="0.00"
+                        :value="$specialEvent->fixed_fee"
+                    />
 
-                <x-error-message.error-message for="fixed_fee"/>
-            </x-form.label>
+                    <x-error-message.error-message for="fixed_fee"/>
+                </x-form.label>
+           @endif
+
 
         @if($mode == 'edit' && count($specialEvent->transportationOptions) > 0)
             <x-form.label>

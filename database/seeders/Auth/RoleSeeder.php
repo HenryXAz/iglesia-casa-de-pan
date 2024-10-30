@@ -53,6 +53,14 @@ class RoleSeeder extends Seeder
         'cliente venta de alimentos' => [
             'puede ordenar alimentos',
         ],
+
+        'repartidor de ordenes de alimentos' => [
+            'entregar ordenes de venta de alimentos',
+        ],
+
+        'administrar dashboard' => [
+            'ver dashboard',
+        ],
     ];
 
     /**

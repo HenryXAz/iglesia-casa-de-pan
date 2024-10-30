@@ -9,6 +9,7 @@ use App\Models\SpecialEvent;
 use App\Models\SpecialEventSubscription;
 use App\Models\TransportationOption;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SpecialEventController extends Controller
@@ -62,6 +63,7 @@ class SpecialEventController extends Controller
             $specialEvent->fixed_fee = $hasFixedFee ? $request->get('fixed_fee') : 0.00;
             $specialEvent->has_fixed_fee = $hasFixedFee;
             $specialEvent->cost = 0.00;
+            $specialEvent->user_id = Auth::user()->id;
 
             $specialEvent->is_published = false;
             $specialEvent->is_active = true;

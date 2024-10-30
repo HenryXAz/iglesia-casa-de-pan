@@ -7,6 +7,7 @@ use App\Models\User;
 use Database\Seeders\Auth\PermissionSeeder;
 use Database\Seeders\Auth\RoleSeeder;
 use Database\Seeders\Auth\UserSeeder;
+use Database\Seeders\CategoryTypes\CategoryTypeSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            CategoryTypeSeeder::class,
         ]);
     }
 }

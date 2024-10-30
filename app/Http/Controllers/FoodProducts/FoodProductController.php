@@ -54,11 +54,12 @@ class FoodProductController extends Controller
         try {
             $foodProduct = new FoodProduct();
             $foodProduct->title = $request->input('title');
-            $foodProduct->description = $request->input('cost');
+            $foodProduct->description = $request->input('description');
             $foodProduct->cost = $request->input('cost');
             $foodProduct->stock = $request->input('units');
             $foodProduct->price_per_unit = $request->input('price_per_unit');
             $foodProduct->total_profits = $request->input('total_return');
+            $foodProduct->total_real_profits = 0.00;
             $foodProduct->is_active = true;
             $foodProduct->is_published = false;
             $foodProduct->is_finalized = false;
@@ -124,8 +125,7 @@ class FoodProductController extends Controller
         $foodProduct->is_published = true;
         $foodProduct->save();
 
-        return redirect(route('food-products.view', $foodProduct->id))
-            ->with(['authorization_success' => 'se autorizó correctemante']);
+        return redirect(route('dashboard'));
     }
 
     public function markAsFinalized(FoodProduct $foodProduct)

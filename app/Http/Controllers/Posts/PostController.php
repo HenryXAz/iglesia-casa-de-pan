@@ -29,8 +29,7 @@ class PostController extends Controller
                 ->where('title', 'like', '%' . request('buscar') . '%')
                 ->paginate(self::POSTS_PER_PAGE)
             :
-                Post::where('user_id', $userId)->paginate(self::POSTS_PER_PAGE);
-            ;
+            Post::where('user_id', $userId)->paginate(self::POSTS_PER_PAGE);;
 
         return view('pages.posts.index', compact('posts'));
     }
@@ -64,14 +63,12 @@ class PostController extends Controller
                     $filename = time() . $file->getClientOriginalName();
                     $filePath = 'images/posts/';
 
-                    $result = UploadImageService::upload($filename, $filePath, $file);
+                    UploadImageService::upload($filename, $filePath, $file);
 
-                    if ($result == true) {
-                        $image = new ModelHasImages();
-                        $image->url = "{$filePath}{$filename}";
+                    $image = new ModelHasImages();
+                    $image->url = "{$filePath}{$filename}";
 
-                        $post->images()->save($image);
-                    }
+                    $post->images()->save($image);
                 }
 
             }
@@ -81,7 +78,6 @@ class PostController extends Controller
             return back()
                 ->with(['creation_success' => 'Publicación creada correctamente']);
         } catch (\Throwable $th) {
-            dd($th->getMessage());
             DB::rollBack();
             return back()
                 ->withErrors(['creation_error' => 'Se produjo un error al crear la publicación']);
@@ -102,6 +98,10 @@ class PostController extends Controller
         }
 
         if ($post == null) {
+            abort(404);
+        }
+
+        if ($post->user_id != Auth::user()->id) {
             abort(404);
         }
 

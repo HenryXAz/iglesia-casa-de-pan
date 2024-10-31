@@ -7,16 +7,9 @@ databases:
 services:
   - type: web
     plan: free
-    name: app
+    name: iglesia-casa-de-pan
     runtime: docker
     envVars:
-      # Database
-      - key: DATABASE_URL
-        fromDatabase:
-          name: iglesia_casa_de_pan_db
-          property: connectionString
-      - key: DB_CONNECTION
-        value: pgsql
       # Laravel
       - key: APP_KEY
         sync: false
@@ -25,7 +18,7 @@ services:
       - key: APP_TIMEZONE
         value: America/Guatemala
       - key: APP_DEBUG
-        value: false
+        value: 0
       - key: LOG_CHANNEL
         value: stderr
       # Image specific varialbles

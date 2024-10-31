@@ -1,9 +1,3 @@
-databases:
-  - name: iglesia_casa_de_pan_db
-    plan: free
-    databaseName: app_db
-    user: app_user_db
-
 services:
   - type: web
     plan: free

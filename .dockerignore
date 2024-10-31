@@ -1,5 +1,6 @@
 .env.example
 .env.backup
+.env
 .dockerignore
 .editorconfig
 .DS_Store

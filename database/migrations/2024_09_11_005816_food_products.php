@@ -29,15 +29,6 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('model_has_category');
         });
 
-        Schema::create('food_products_detail', function(Blueprint $table){
-            $table->id();
-            $table->string('description', 255);
-            $table->decimal('cost', 8, 2);
-            $table->integer('quantity');
-
-            $table->foreignId('food_product_id')->constrained('food_products');
-        });
-
         Schema::create('food_product_orders', function (Blueprint $table) {
             $table->id();
             $table->decimal('unit_price', 8, 2);

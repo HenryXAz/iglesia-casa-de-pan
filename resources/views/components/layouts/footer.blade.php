@@ -15,8 +15,13 @@
                 </ul>
             </div>
             <hr class="my-6 border-gray-300 sm:mx-auto dark:border-gray-700 lg:my-8" />
+
             <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
                 © {{\Carbon\Carbon::now()->format('Y') }} <a href="https://flowbite.com/" class="hover:underline">Iglesia Casa de Pan y Alabanza</a>. Todos los derechos reservados.</span>
+            <span class="block mt-5 text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                Autor: Henry Gustavo Xitimul Az. Estudiante de Universidad Mariano Gálvez de Guatemala
+            </span>
+
         </div>
     </footer>
 </div>
